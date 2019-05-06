@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -21,12 +23,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '($@#6r%r4jwnr1am9#7ex#h3rp)b-dx03vk(x^bk9tq=&&3vg3'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.jayrequard.com', 'jayrequard.herokuapp.com', 'jayrequard.com', '127.0.0.1']
 
 
 # Application definition
@@ -129,10 +131,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 # AWS S3
-AWS_ACCESS_KEY_ID = "AKIAWH64ZN47UL2OG462"
-AWS_SECRET_ACCESS_KEY = "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"
-AWS_STORAGE_BUCKET_NAME= "booksmarch"
-AWS_S3_REGION_NAME = "us-east-2"
+AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_REGION_NAME = os.getenv('AWS_S3_REGION_NAME')
 
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
