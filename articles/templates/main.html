@@ -1,0 +1,432 @@
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+      integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+      crossorigin="anonymous"
+    />
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'articles/main.css' %}"
+    />
+
+    <title>Books For The March</title>
+  </head>
+  {%block content%}
+  <body>
+    <!-- navbar -->
+    <header>
+      <nav class="nav-wrapper transparent">
+        <div class="container lora" id="home">
+          <a href="{% url 'main' %}" class="brand-logo">Jay Requard</a>
+          <a href="" class="sidenav-trigger" data-target="mobile-menu">
+            <i class="material-icons">menu</i>
+          </a>
+          <ul class="right hide-on-med-and-down">
+            <li>
+              <a
+                class="waves-effect waves-light btn indigo darken-4"
+                href="{% url 'articles-home' %}"
+                >Blog</a
+              >
+            </li>
+            <li><a href="#works">Works</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#events">Events</a></li>
+            <li>
+              <a
+                href="https://twitter.com/JayRequard"
+                class="tooltipped btn-floating btn-small indigo darken-4"
+                data-tooltip="Twitter"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/JayRequardOfficial"
+                class="tooltipped btn-floating btn-small indigo darken-4"
+                data-tooltip="Facebook"
+              >
+                <i class="fab fa-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/jayrequard/"
+                class="tooltipped btn-floating btn-small indigo darken-4"
+                data-tooltip="Instagram"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+            </li>
+          </ul>
+          <ul class="sidenav grey lighten-2" id="mobile-menu">
+            <li>
+              <a
+                class="waves-effect waves-light btn indigo darken-4"
+                href="{% url 'articles-home' %}"
+                >Blog</a
+              >
+            </li>
+            <li><a href="#works">Works</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#events">Events</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- photo / grid -->
+    <section class="container section" id="works">
+      {% for feature in features %}
+      <div class="row">
+        <div class="col s12 l4">
+          <img src="{{feature.cover.url}}" alt="#" class="responsive-img" />
+        </div>
+        <div class="col s12 l6 offset-l1">
+          <h2 class="indigo-text text-darken-4 lora">{{ feature.title }}</h2>
+          <p>{{ feature.blurb|safe }}</p>
+        </div>
+      </div>
+      {% endfor %}
+      <br />
+      <div class="center">
+        <a class="btn-large indigo darken-4 modal-trigger lora" href="#works1"
+          >Full Catalog</a
+        >
+      </div>
+    </section>
+
+    <!--works modal-->
+    <div id="works1" class="modal">
+      <div class="modal-content">
+        <h4 class="lora">Works</h4>
+        <div class="col s12 m12 l12">
+          <ul class="tabs">
+            <li class="tab col s4">
+              <a href="#novels" class="indigo-text text-darken-4 lora"
+                >Novels</a
+              >
+            </li>
+            <li class="tab col s4">
+              <a href="#novellas" class="indigo-text text-darken-4 lora"
+                >Novellas</a
+              >
+            </li>
+            <li class="tab col s4">
+              <a href="#shorts" class="indigo-text text-darken-4 lora"
+                >Shorts/Collections</a
+              >
+            </li>
+          </ul>
+          <div class="col s12" id="novels">
+            <div class="">
+              <div class="row">
+                {% for novel in novels %}
+                <div class="col s12 m6 l6">
+                  <div class="card">
+                    <div
+                      class="card-image waves-effect waves-block waves-light"
+                    >
+                      <img class="activator" src="{{ novel.cover_1.url }}" />
+                    </div>
+                    <div class="card-content">
+                      <span
+                        class="card-title activator grey-text text-darken-4 lora"
+                        >{{ novel.title
+                        }}<i class="material-icons right">more_vert</i></span
+                      >
+                      <p>
+                        <a href="{{ novel.link }}" class="lora">Purchase</a>
+                      </p>
+                    </div>
+                    <div class="card-reveal">
+                      <span class="card-title grey-text text-darken-4 lora"
+                        >{{ novel.title
+                        }}<i class="material-icons right">close</i></span
+                      >
+                      <p>{{ novel.blurb | safe }}</p>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+
+          <div class="col s12" id="novellas">
+            <div class="">
+              <div class="row">
+                {% for novella in novellas %}
+                <div class="col s12 m6 l6">
+                  <div class="card">
+                    <div
+                      class="card-image waves-effect waves-block waves-light"
+                    >
+                      <img class="activator" src="{{ novella.cover.url }}" />
+                    </div>
+                    <div class="card-content">
+                      <span
+                        class="card-title activator grey-text text-darken-4 lora"
+                        >{{ novella.title
+                        }}<i class="material-icons right">more_vert</i></span
+                      >
+                      <p><a href="{{ novella.link }}">Purchase</a></p>
+                    </div>
+                    <div class="card-reveal">
+                      <span class="card-title grey-text text-darken-4 lora"
+                        >{{ novella.title
+                        }}<i class="material-icons right">close</i></span
+                      >
+                      <p>{{ novella.blurb | safe }}</p>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <div class="col s12" id="shorts">
+            <div class="">
+              <div class="row">
+                {% for short in shorts %}
+                <div class="col s12 m6 l6">
+                  <div class="card">
+                    <div
+                      class="card-image waves-effect waves-block waves-light"
+                    >
+                      <img class="activator" src="{{ short.cover.url }}" />
+                    </div>
+                    <div class="card-content">
+                      <span
+                        class="card-title activator grey-text text-darken-4 lora"
+                        >{{ short.title
+                        }}<i class="material-icons right">more_vert</i></span
+                      >
+                      <p><a href="{{ short.link }}">Purchase</a></p>
+                    </div>
+                    <div class="card-reveal">
+                      <span class="card-title grey-text text-darken-4 lora"
+                        >{{ short.title
+                        }}<i class="material-icons right">close</i></span
+                      >
+                      <p>{{ short.blurb_1 }}</p>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- parallax 1-->
+    <div class="parallax-container">
+      <div class="parallax">
+        <img src="{% static 'img/jay2.jpg' %}" alt="#" class="responsive-img" />
+      </div>
+    </div>
+
+    <!-- services / tabs -->
+    <section class="container section" id="about">
+      <div class="row">
+        <div class="col s12 l4">
+          {% for cover in covers %}
+          <h2 class="indigo-text text-darken-4 lora">{{ cover.name }}</h2>
+          <h3 class="indigo-text text-darken-4 lora">{{ cover.profession }}</h3>
+          <p>{{ cover.description | safe }}</p>
+        </div>
+        <div class="col s12 l6 offsett-l2">
+          <ul class="tabs">
+            <li class="tab col s6">
+              <a href="#author" class="indigo-text text-darken-4 lora"
+                >Author</a
+              >
+            </li>
+            <li class="tab col s6">
+              <a href="#blogger" class="indigo-text text-darken-4 lora"
+                >Blogger</a
+              >
+            </li>
+          </ul>
+          <div class="col s12" id="author">
+            <p class="flow-text indigo-text text-darken-4 lora">Author</p>
+            <p>{{ cover.author | safe }}</p>
+            <ul>
+              <li>
+                <a
+                  class="waves-effect waves-light btn indigo darken-4 lora"
+                  href="#events"
+                  >Events</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col s12" id="blogger">
+            <p class="flow-text indigo-text text-darken-4 lora">Blogger</p>
+            <p>{{ cover.blogger | safe }}</p>
+            <ul>
+              <li>
+                <a
+                  class="waves-effect waves-light btn indigo darken-4 lora"
+                  href="#"
+                  >Blog</a
+                >
+              </li>
+            </ul>
+          </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <!-- parallax 2-->
+    <div class="parallax-container">
+      <div class="parallax">
+        <img src="{% static 'img/jay.png' %}" alt="" class="responsive-img" />
+      </div>
+    </div>
+
+    <!-- events -->
+
+    <div id="events">
+      <div class="slider black">
+        <ul class="slides">
+          {% for event in events %}
+          <li>
+            <img src="{{ event.event_picture.url }}" />
+            <!-- random image -->
+            <div class="caption center-align">
+              <h3 class="lora" id="e-title">{{ event.event }}</h3>
+              <p id="e-description">{{ event.description|safe }}</p>
+              <h5 class="light grey-text text-lighten-3" id="e-link">
+                <a href="{{ event.link }}">Click Here...</a>
+              </h5>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    
+
+
+    <!-- footer -->
+    <footer class="page-footer grey darken-3">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 l6">
+            <h5 class="lora">About Me</h5>
+            <p>
+              Jay Requard is a wanderer and fantasy author currently in New York. 
+              Fed on equal amounts of Socrates, Vyasa, and Ursula K. Le Guin, he has spent time in North Carolina, Colorado, 
+              Ireland, and London, as well other parts of the world. While his interests vary from swordsmanship to space 
+              to sacred studies, he is a constant practitioner of meditation and has been known to enjoy most books handed to him.
+                In his spare time he brews, tries to practice better habits, and of course, writes fantasy.
+            </p>
+            <p>
+              Books For The March is the website for his published works, his blog, and serves as the central space for his creative and artistic outputs.
+            </p>
+          </div>
+          <div class="col s12 l4 offset-l2">
+            <h5>Connect</h5>
+            <ul>
+              <li><a href="https://twitter.com/JayRequard" class="grey-text text-lighten-3">Twitter</a></li>
+              <li><a href="https://www.facebook.com/JayRequardOfficial" class="grey-text text-lighten-3">Facebook</a></li>
+              <li><a href="https://www.instagram.com/jayrequard/" class="grey-text text-lighten-3">Instagram</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright grey darken-4">
+        <div class="container center-align">&copy 2018 Aaron Toliver</div>
+      </div>
+    </footer>
+
+    <div class="fixed-action-btn toolbar">
+      <a class="btn-floating btn-large indigo darken-4">
+        <i
+          class="large material-icons tooltipped"
+          data-position="top"
+          data-tooltip="Blog"
+          >details</i
+        >
+      </a>
+      <ul>
+        <li>
+          <a
+            class="btn-floating indigo darken-4 tooltipped"
+            data-tooltip="Return Home"
+            data-position="top"
+            href="{% url 'main' %}"
+            ><i class="material-icons">home</i></a
+          >
+        </li>
+        <li>
+          <a
+            class="btn-floating indigo darken-4 tooltipped"
+            data-tooltip="Blog"
+            data-position="top"
+            href="{% url 'articles-home' %}"
+            ><i class="material-icons">chrome_reader_mode</i></a
+          >
+        </li>
+        <li>
+          <a
+            class="btn-floating indigo darken-4 tooltipped"
+            data-tooltip="Top"
+            data-position="top"
+            href="#home"
+            ><i class="material-icons">arrow_upward</i></a
+          >
+        </li>
+      </ul>
+    </div>
+    {% endblock %}
+
+    <!-- Compiled and minified JavaScript -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $(".sidenav").sidenav();
+        $(".parallax").parallax();
+        $(".tabs").tabs();
+        $(".datepicker").datepicker();
+        $(".tooltipped").tooltip();
+        $(".modal").modal();
+        $(".fixed-action-btn").floatingActionButton({
+          toolbarEnabled: true
+        });
+        $(".scrollspy").scrollSpy();
+        $(".slider").slider();
+        M.toast({
+          html: "Access my Blog at the bottom-right corner of the screen!"
+        });
+      });
+    </script>
+  </body>
+</html>

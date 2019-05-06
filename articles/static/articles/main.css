@@ -1,0 +1,51 @@
+body, html {
+  height: 100%;
+}
+
+@font-face {
+  font-family: 'lora';
+  src: url("/assets/Lora-Regular.ttf");
+  font-style: normal;
+  font-weight: 100;
+}
+
+.lora {
+  font-family: 'lora';
+  font-weight: 100;
+}
+
+header {
+    background: url("../img/BMfinal.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 100%; width: 100%;
+    background-attachment: fixed;
+  }
+
+#bl-back {
+  background-color: #14194d;
+}
+
+#events {
+  background: black;
+  padding-bottom: 2vw;
+}
+
+#e-title #e-description #e-link {
+  background-color: black;
+}
+
+.modal {
+  height: 100%;
+  }
+
+.tabs .indicator {
+  background-color: #1a237e;
+}
+
+.tabs .tab a:focus,
+.tabs .tab a:focus.active {
+  background: transparent;
+}
+
+  
