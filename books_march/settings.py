@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -125,4 +127,12 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+# AWS S3
+AWS_ACCESS_KEY_ID = "AKIAWH64ZN47UL2OG462"
+AWS_SECRET_ACCESS_KEY = "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"
+AWS_STORAGE_BUCKET_NAME= "booksmarch"
+AWS_S3_REGION_NAME = "us-east-2"
 
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
