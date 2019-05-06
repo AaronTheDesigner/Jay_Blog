@@ -4,7 +4,7 @@ body, html {
 
 @font-face {
   font-family: 'lora';
-  src: url("/assets/Lora-Regular.ttf");
+  src: url("Lora-Regular.ttf");
   font-style: normal;
   font-weight: 100;
 }
@@ -47,5 +47,16 @@ header {
 .tabs .tab a:focus.active {
   background: transparent;
 }
+
+.slider .slides li .caption {
+  background-color: black;
+  padding-bottom: 1rem;
+  position: absolute;
+  top: 0%; 
+  left: 0%;
+  width: 40%; 
+}
+
+
 
   

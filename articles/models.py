@@ -45,7 +45,7 @@ class Short(models.Model):
 class Event(models.Model):
     event = models.CharField(max_length=50)
     event_picture = models.ImageField()
-    description = models.TextField()
+    description = models.TextField(max_length=150)
     link = models.URLField()
 
 class Feature(models.Model):
