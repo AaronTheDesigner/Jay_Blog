@@ -1,8 +1,23 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
-from .models import Article
+from .models import Article, Cover, Novel, Event, Novella, Short, Feature
 
-# Create your views here.
+def main(request):
+    covers = Cover.objects.all()
+    novels = Novel.objects.all()
+    events = Event.objects.all()
+    novellas = Novella.objects.all()
+    shorts = Short.objects.all()
+    features = Feature.objects.all()
+
+    return render(request, 'main.html', {
+        'covers': covers,
+        'novels': novels,
+        'events': events,
+        'novellas': novellas,
+        'shorts': shorts,
+        'features': features
+    })
 
 
 
