@@ -1,0 +1,69 @@
+body, html {
+  height: 100%;
+}
+
+@font-face {
+  font-family: 'lora';
+  src: url("Lora-Regular.ttf");
+  font-style: normal;
+  font-weight: 100;
+}
+
+.lora {
+  font-family: 'lora';
+  font-weight: 100;
+}
+
+header {
+    background: url("../img/deluge.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 100%; width: 100%;
+    background-attachment: fixed;
+  }
+
+#bl-back {
+  background-color: #14194d;
+}
+
+#events {
+  background: black;
+  padding-bottom: 2vw;
+}
+
+#e-title #e-description #e-link {
+  background-color: black;
+}
+
+.modal {
+  height: 100%;
+  }
+
+.tabs .indicator {
+  background-color: #1a237e;
+}
+
+.tabs .tab a:focus,
+.tabs .tab a:focus.active {
+  background: transparent;
+}
+
+.slider .slides li .caption {
+  background-color: black;
+  padding-bottom: 1rem;
+  position: absolute;
+  top: 0%; 
+  left: 0%;
+  width: 100%; 
+}
+
+
+@media only screen and (max-width: 650px) {
+  header {
+    background: url("../img/deluge.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 100%; width: 100%;
+    background-attachment: fixed;
+  }
+}

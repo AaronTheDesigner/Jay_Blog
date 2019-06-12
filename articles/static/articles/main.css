@@ -9,6 +9,18 @@ body, html {
   font-weight: 100;
 }
 
+@font-face {
+  font-family: 'ring';
+  src: url("RINGM___.TTF");
+  font-style: normal;
+  font-weight: 100;
+}
+
+.ring {
+  font-family: 'ring';
+  font-weight: 100;
+}
+
 .lora {
   font-family: 'lora';
   font-weight: 100;
@@ -21,6 +33,17 @@ header {
     height: 100%; width: 100%;
     background-attachment: fixed;
   }
+
+header h1 {
+  color: white;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  display: none;
+}
 
 #bl-back {
   background-color: #14194d;
@@ -58,5 +81,15 @@ header {
 }
 
 
-
-  
+@media only screen and (max-width: 650px) {
+  header {
+    background: url("../img/deluge.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 100%; width: 100%;
+    background-attachment: fixed;
+  }
+  header h1 {
+    display: inline;
+  }
+}
