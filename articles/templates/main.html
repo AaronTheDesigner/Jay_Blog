@@ -148,13 +148,11 @@
                     <div
                       class="card-image waves-effect waves-block waves-light"
                     >
-                      <img class="activator" src="{{ novel.cover_1.url }}" />
+                      <img class="activator" src="{{ novel.cover.url }}" />
                     </div>
                     <div class="card-content">
                       <span
-                        class="card-title activator grey-text text-darken-4 lora"
-                        >{{ novel.title
-                        }}<i class="material-icons right">more_vert</i></span
+                        class="card-title activator grey-text text-darken-4 lora">{{ novel.title}}<i class="material-icons right">more_vert</i></span
                       >
                       <p>
                         <a href="{{ novel.link }}" class="lora">Purchase</a>
@@ -162,8 +160,7 @@
                     </div>
                     <div class="card-reveal">
                       <span class="card-title grey-text text-darken-4 lora"
-                        >{{ novel.title
-                        }}<i class="material-icons right">close</i></span
+                        >{{ novel.title}}<i class="material-icons right">close</i></span
                       >
                       <p>{{ novel.blurb | safe }}</p>
                     </div>
@@ -217,17 +214,12 @@
                     </div>
                     <div class="card-content">
                       <span
-                        class="card-title activator grey-text text-darken-4 lora"
-                        >{{ short.title
-                        }}<i class="material-icons right">more_vert</i></span
-                      >
+                        class="card-title activator grey-text text-darken-4 lora">
+                        {{ short.title}}<i class="material-icons right">more_vert</i></span>
                       <p><a href="{{ short.link }}">Purchase</a></p>
                     </div>
                     <div class="card-reveal">
-                      <span class="card-title grey-text text-darken-4 lora"
-                        >{{ short.title
-                        }}<i class="material-icons right">close</i></span
-                      >
+                      <span class="card-title grey-text text-darken-4 lora">{{ short.title}}<i class="material-icons right">close</i></span>
                       <p>{{ short.blurb_1 }}</p>
                     </div>
                   </div>
