@@ -1,6 +1,8 @@
 {% extends 'articles/base.html' %}
 
 {% block content %}
+
+
 <div id="bl-back">
     <div class="container" id="bl-back">
         <br>   
@@ -22,6 +24,12 @@
                         <br>
                         <h6> By {{object.author}} on {{object.date_posted|date:"F d, Y"}} </h6>
                         <br>
+                         <a href="https://www.facebook.com/sharer/sharer.php?u={{request.build_absolute_uri}}">
+                            
+                            <span style="font-size: 3em;">
+                                <i class="fab fa-facebook-f"></i>
+                              </span>
+                        </a> 
                     </div>
                 </div>
             </div>
