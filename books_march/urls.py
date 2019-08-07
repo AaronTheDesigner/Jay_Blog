@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from . import views
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.conf import settings
 from django.conf.urls.static import static
 from subscription import views as sub_views
+from newsletter import views as news_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,7 +27,11 @@ urlpatterns = [
     path('', views.main, name='main'),
     path('register/', sub_views.register, name="register"),
     path('summernote/', include('django_summernote.urls')),
+    path('newsletter/', news_views.newsletter_signup, name="signup")
+   
 ]
+
+ 
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

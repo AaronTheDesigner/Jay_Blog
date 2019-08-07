@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 
 class Article(models.Model):
     title = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=50, default="BFTM")
     subtitle = models.CharField(max_length=100)
     content = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
