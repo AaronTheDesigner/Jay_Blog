@@ -1,12 +1,13 @@
 from django.db import models
 from django.utils import timezone
+
 from django.contrib.auth.models import User
 
 # Create your models here.
 
 class Article(models.Model):
     title = models.CharField(max_length=100)
-    slug = models.SlugField(max_length=50, default="BFTM")
+    slug = models.SlugField(max_length=50, allow_unicode=True, unique=True)
     subtitle = models.CharField(max_length=100)
     content = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
