@@ -16,6 +16,7 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+        return self.slug
         return f'(self.user.username) Image'
 
 class Cover(models.Model):
