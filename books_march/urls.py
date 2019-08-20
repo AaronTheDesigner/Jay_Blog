@@ -27,7 +27,7 @@ urlpatterns = [
     path('', views.main, name='main'),
     path('register/', sub_views.register, name="register"),
     path('summernote/', include('django_summernote.urls')),
-    path('newsletter/', news_views.newsletter_signup, name="signup")
+    path('newsletter/', news_views.newsletter_signup, name="newsletter")
    
 ]
 
